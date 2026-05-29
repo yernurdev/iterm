@@ -1,0 +1,206 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: Inter, ui-sans-serif, system-ui, sans-serif;
+}
+
+@layer base {
+  html {
+    font-family: var(--font-sans);
+  }
+
+  body {
+    margin: 0;
+    background: #f8fafc;
+    color: #020617;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  button,
+  input,
+  textarea,
+  select {
+    font: inherit;
+  }
+}
+
+@layer components {
+  .page-shell {
+    width: min(1180px, calc(100% - 32px));
+    margin-inline: auto;
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    min-height: 42px;
+    border-radius: 8px;
+    padding: 0.6rem 1rem;
+    font-weight: 800;
+    transition: border-color 0.2s, background 0.2s, color 0.2s, transform 0.2s;
+  }
+
+  .btn:disabled {
+    cursor: not-allowed;
+    opacity: 0.55;
+  }
+
+  .btn:not(:disabled):hover {
+    transform: translateY(-1px);
+  }
+
+  .btn-primary {
+    border: 1px solid #020617;
+    background: #020617;
+    color: white;
+  }
+
+  .btn-ghost {
+    border: 1px solid #cbd5e1;
+    background: white;
+    color: #0f172a;
+  }
+
+  .nav-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    border-radius: 8px;
+    padding: 0.55rem 0.75rem;
+    font-size: 0.92rem;
+    font-weight: 800;
+    transition: background 0.2s, color 0.2s;
+  }
+
+  .icon-btn {
+    display: inline-grid;
+    width: 40px;
+    height: 40px;
+    place-items: center;
+    border-radius: 8px;
+    border: 1px solid #cbd5e1;
+    background: white;
+    color: #334155;
+  }
+
+  .segmented {
+    display: inline-flex;
+    border-radius: 8px;
+    border: 1px solid #cbd5e1;
+    background: white;
+    padding: 2px;
+  }
+
+  .segmented button {
+    border-radius: 6px;
+    padding: 0.4rem 0.6rem;
+    font-size: 0.78rem;
+    font-weight: 900;
+    color: #64748b;
+  }
+
+  .segmented button.active {
+    background: #10b981;
+    color: white;
+  }
+
+  .field {
+    display: block;
+    margin-bottom: 0.25rem;
+  }
+
+  .field span {
+    display: block;
+    margin-bottom: 0.4rem;
+    font-size: 0.82rem;
+    font-weight: 800;
+    color: #475569;
+  }
+
+  .field input,
+  .field textarea,
+  .field select,
+  .control {
+    width: 100%;
+    border-radius: 8px;
+    border: 1px solid #cbd5e1;
+    background: white;
+    padding: 0.7rem 0.8rem;
+    color: #0f172a;
+    outline: none;
+  }
+
+  .field input:focus,
+  .field textarea:focus,
+  .field select:focus,
+  .control:focus {
+    border-color: #10b981;
+    box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.15);
+  }
+
+  .status-green,
+  .status-yellow,
+  .status-red,
+  .status-blue {
+    border-radius: 6px;
+    padding: 0.1rem 0.28rem;
+  }
+
+  .status-green {
+    background: #dcfce7;
+    color: #166534;
+  }
+
+  .status-yellow {
+    background: #fef3c7;
+    color: #92400e;
+  }
+
+  .status-red {
+    background: #fee2e2;
+    color: #991b1b;
+  }
+
+  .status-blue {
+    background: #dbeafe;
+    color: #1d4ed8;
+  }
+
+  .result-token {
+    position: relative;
+    display: inline-block;
+    margin: 0 0.12rem;
+    cursor: help;
+    border-bottom: 2px solid currentColor;
+  }
+
+  .result-token .tooltip {
+    position: absolute;
+    left: 50%;
+    bottom: calc(100% + 8px);
+    z-index: 20;
+    display: none;
+    min-width: 240px;
+    max-width: 320px;
+    transform: translateX(-50%);
+    border-radius: 8px;
+    background: #020617;
+    color: white;
+    padding: 0.7rem;
+    font-size: 0.82rem;
+    line-height: 1.35;
+    box-shadow: 0 18px 35px rgba(15, 23, 42, 0.22);
+  }
+
+  .result-token:hover .tooltip {
+    display: grid;
+    gap: 0.35rem;
+  }
+
+  .result-token .tooltip small {
+    color: #a7f3d0;
+  }
+}
